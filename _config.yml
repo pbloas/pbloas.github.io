@@ -12,8 +12,9 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Pablo Aísa Serranos"
 title_separator          : "-"
 name                     : &name "Pablo Aísa Serranos"
-description              : &description "Sociologist | Computational Social Science"
-url                      : https://pbloas.github.io
+description              : &description "Doctoral Researcher | Urban Inequalities & Green Transitions"
+url                      : https://pbloas.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "pbloas/pbloas.github.io"
 
@@ -25,11 +26,11 @@ author:
   avatar           : "profile.png"
   name             : "Pablo Aísa Serranos"
   pronouns         : # example: "she/her"  
-  bio              : "Sociologist with a Master's in Computational Social Science (UC3M). Research at the intersection of urban dynamics and political behaviour."
+  bio              : "Doctoral Researcher at Universidad Complutense de Madrid. Research on green transitions, urban inequalities and climate adaptation policies in the Madrid metropolitan region."
   location         : "Madrid, Spain"
-  employer         : "Universidad Carlos III de Madrid"
+  employer         : "Universidad Complutense de Madrid"
   uri              : # URL
-  email            : "pablo3as@gmail.com"
+  email            : "pabloais@ucm.es"
 
   # Academic websites
   academia         : # URL
