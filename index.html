@@ -1,416 +1,426 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pablo Aísa — Investigador Doctoral UCM</title>
-  <meta name="description" content="Doctoral Researcher in Geography UCM | Computational Social Science | Green transition & urban inequalities in Madrid" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <title>Pablo Aísa</title>
+  <meta name="description" content="Doctoral Researcher in Geography, UCM. Computational Social Science. Green transition & urban inequalities in Madrid." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /*
+      ggsci::blue_grey_material palette
+      50:  #ECEFF1  ← background
+      100: #CFD8DC  ← surface / sidebar
+      200: #B0BEC5  ← borders
+      300: #90A4AE  ← muted text / icons
+      400: #78909C  ← secondary text
+      500: #607D8B  ← labels / nav
+      600: #546E7A  ← links
+      700: #455A64  ← link hover
+      800: #37474F  ← headings
+      900: #263238  ← primary text
+    */
     :root {
-      --text-primary: #1a1a1a;
-      --text-secondary: #555;
-      --text-tertiary: #999;
-      --border: #e2e2e2;
-      --bg: #ffffff;
-      --bg-surface: #f7f6f4;
-      --accent: #2a2a2a;
+      --bg:        #ECEFF1;
+      --surface:   #CFD8DC;
+      --border:    #B0BEC5;
+      --muted:     #90A4AE;
+      --secondary: #78909C;
+      --label:     #607D8B;
+      --link:      #546E7A;
+      --link-hover:#455A64;
+      --heading:   #37474F;
+      --text:      #263238;
+      --tag-bg:    #ECEFF1;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --text-primary: #e8e6e0;
-        --text-secondary: #a0a0a0;
-        --text-tertiary: #666;
-        --border: #2e2e2e;
-        --bg: #141414;
-        --bg-surface: #1c1c1c;
-        --accent: #e8e6e0;
-      }
-    }
-
-    html { scroll-behavior: smooth; }
+    html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lora', Georgia, serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--text);
       background: var(--bg);
-      color: var(--text-primary);
-      line-height: 1.7;
-      min-height: 100vh;
+      line-height: 1.65;
     }
 
-    .container {
-      max-width: 720px;
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 900px;
       margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ── HEADER ── */
-    header {
-      padding: 4rem 0 2.5rem;
-      border-bottom: 0.5px solid var(--border);
-      margin-bottom: 3rem;
-    }
-
-    .eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 1.1rem;
-    }
-
-    h1 {
-      font-size: clamp(32px, 6vw, 44px);
-      font-weight: 400;
-      letter-spacing: -0.025em;
-      line-height: 1.12;
-      margin-bottom: 0.5rem;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--text-secondary);
-    }
-
-    .tagline {
-      font-size: 15px;
-      color: var(--text-secondary);
-      font-style: italic;
-      margin-top: 0.85rem;
-      line-height: 1.6;
-    }
-
-    nav {
+      padding: 3.5rem 1.5rem 5rem;
       display: flex;
-      gap: 1.75rem;
-      margin-top: 1.75rem;
-      flex-wrap: wrap;
+      gap: 3.5rem;
+      align-items: flex-start;
     }
 
-    nav a {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--text-secondary);
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 210px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .sidebar .name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+      color: var(--heading);
+    }
+
+    .sidebar .name a {
+      color: inherit;
       text-decoration: none;
-      letter-spacing: 0.06em;
-      padding-bottom: 2px;
-      border-bottom: 0.5px solid var(--border);
-      transition: color 0.2s, border-color 0.2s;
     }
 
-    nav a:hover { color: var(--text-primary); border-color: var(--text-primary); }
-
-    /* ── SECTIONS ── */
-    section { margin-bottom: 3.5rem; }
-
-    .sec-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 1.4rem;
+    .sidebar .institution {
+      font-size: 0.79rem;
+      color: var(--secondary);
+      line-height: 1.6;
+      margin-bottom: 1.3rem;
     }
 
-    /* ── ABOUT ── */
-    .about {
-      font-size: 15.5px;
-      color: var(--text-primary);
-      line-height: 1.9;
-      max-width: 600px;
+    .sidebar img {
+      width: 100%;
+      max-width: 155px;
+      border-radius: 4px;
+      display: block;
+      margin-bottom: 1.3rem;
+      border: 1px solid var(--border);
     }
 
-    .about em { font-style: italic; color: var(--text-secondary); }
-
-    /* ── RESEARCH BOX ── */
-    .research-box {
-      padding: 1.4rem 1.5rem;
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      background: var(--bg-surface);
+    .sidebar nav {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.3rem;
+      margin-bottom: 1.6rem;
     }
 
-    .research-item p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-    }
-
-    .research-item strong {
-      font-weight: 500;
-      color: var(--text-primary);
-      display: block;
-      margin-bottom: 0.2rem;
-      font-size: 13.5px;
-    }
-
-    /* ── PROJECT CARDS ── */
-    .card-list {
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .proj {
-      padding: 1.2rem 1.4rem;
-      background: var(--bg);
-      border-bottom: 0.5px solid var(--border);
+    .sidebar nav a {
+      font-size: 0.88rem;
+      color: var(--link);
       text-decoration: none;
-      display: block;
-      transition: background 0.15s;
-    }
-
-    .proj:last-child { border-bottom: none; }
-    .proj:hover { background: var(--bg-surface); }
-
-    .proj-top {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 0.4rem;
-      flex-wrap: wrap;
-    }
-
-    .proj-title {
-      font-size: 14.5px;
       font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.4;
+      transition: color 0.15s;
     }
 
-    .proj-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.06em;
-      padding: 3px 10px;
-      border-radius: 100px;
-      border: 0.5px solid var(--border);
-      color: var(--text-tertiary);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
+    .sidebar nav a:hover { color: var(--link-hover); }
+    .sidebar nav a.active { font-weight: 700; color: var(--heading); }
 
-    .proj-desc {
-      font-size: 13.5px;
-      font-style: italic;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* ── SKILLS ── */
-    .skills {
+    .sidebar .social {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      padding: 5px 13px;
-      border-radius: 100px;
-      border: 0.5px solid var(--border);
-      color: var(--text-secondary);
-      background: var(--bg-surface);
-    }
-
-    /* ── CONTACT ── */
-    .contacts {
-      display: flex;
-      gap: 1.75rem;
-      flex-wrap: wrap;
+      gap: 0.7rem;
       align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.7rem;
     }
 
-    .contact-link {
+    .sidebar .social a {
+      color: var(--muted);
       display: flex;
       align-items: center;
-      gap: 7px;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--text-secondary);
-      text-decoration: none;
       transition: color 0.2s;
     }
 
-    .contact-link:hover { color: var(--text-primary); }
+    .sidebar .social a:hover { color: var(--heading); }
+    .sidebar .social svg { width: 18px; height: 18px; fill: currentColor; }
 
-    .contact-link svg {
-      width: 15px;
-      height: 15px;
-      stroke: currentColor;
+    .sidebar .email {
+      font-size: 0.76rem;
+      color: var(--secondary);
+      word-break: break-all;
+    }
+
+    .sidebar .email a { color: var(--secondary); text-decoration: none; }
+    .sidebar .email a:hover { color: var(--link-hover); }
+
+    /* ── MAIN ── */
+    main { flex: 1; min-width: 0; }
+
+    main p {
+      font-size: 0.93rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    main a { color: var(--link); text-decoration: none; font-weight: 500; }
+    main a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    h2 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--label);
+      margin-top: 2.75rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    /* ── ITEM LIST (publications, projects, data) ── */
+    .item-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .item-list li {
+      font-size: 0.91rem;
+      line-height: 1.65;
+      padding-bottom: 1.4rem;
+      border-bottom: 1px solid var(--surface);
+    }
+
+    .item-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .item-title {
+      font-weight: 600;
+      color: var(--heading);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .item-meta {
+      font-size: 0.84rem;
+      color: var(--secondary);
+      margin-bottom: 0.3rem;
+      font-style: italic;
+    }
+
+    .item-desc {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.35rem;
+    }
+
+    .item-links {
+      margin-top: 0.4rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .item-links a {
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: var(--link);
+      border: 1px solid var(--border);
+      padding: 2px 9px;
+      border-radius: 3px;
+      background: var(--tag-bg);
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      text-decoration: none;
+    }
+
+    .item-links a:hover {
+      background: var(--surface);
+      color: var(--link-hover);
+      border-color: var(--secondary);
+      text-decoration: none;
+    }
+
+    /* ── CV SECTION ── */
+    .cv-block {
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cv-block a.cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--bg);
+      background: var(--link);
+      border: none;
+      padding: 8px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .cv-block a.cv-btn:hover {
+      background: var(--link-hover);
+      text-decoration: none;
+      color: var(--bg);
+    }
+
+    .cv-block a.cv-btn svg {
+      width: 14px;
+      height: 14px;
       fill: none;
-      stroke-width: 1.5;
+      stroke: currentColor;
+      stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      flex-shrink: 0;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 1.75rem 0 2.5rem;
-      border-top: 0.5px solid var(--border);
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 300;
-      color: var(--text-tertiary);
-      letter-spacing: 0.06em;
+    .cv-note {
+      font-size: 0.82rem;
+      color: var(--secondary);
+      font-style: italic;
     }
 
-    @media (max-width: 540px) {
-      .container { padding: 0 1.25rem; }
-      header { padding: 2.5rem 0 2rem; }
-      h1 { font-size: 30px; }
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .wrapper { flex-direction: column; gap: 2rem; padding-top: 2rem; }
+      .sidebar { width: 100%; position: static; }
+      .sidebar img { max-width: 100px; }
+      .sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 0.4rem 1.1rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="wrapper">
 
-    <header>
-      <p class="eyebrow">portfolio · investigador doctoral · UCM</p>
-      <h1>Pablo <em>Aísa</em></h1>
-      <p class="tagline">
-        Geografía · Ciencia Social Computacional ·<br>
-        Transición verde &amp; desigualdades urbanas en Madrid
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <p class="name"><a href="index.html">Pablo Aísa</a></p>
+    <p class="institution">
+      Doctoral Researcher<br>
+      Department of Geography<br>
+      Universidad Complutense<br>de Madrid
+    </p>
+
+    <!-- Upload foto.jpg to your repo root -->
+    <img src="foto.jpg" alt="Photo of Pablo Aísa" onerror="this.style.display='none'" />
+
+    <nav>
+      <a href="#about" class="active">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#data">Data</a>
+      <a href="#cv">CV</a>
+    </nav>
+
+    <div class="social">
+      <!-- GitHub -->
+      <a href="https://github.com/pbloas" target="_blank" rel="noopener" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <!-- Google Scholar — replace href with your profile -->
+      <a href="https://scholar.google.com" target="_blank" rel="noopener" title="Google Scholar">
+        <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>
+      </a>
+    </div>
+
+    <!-- Replace with your real email -->
+    <p class="email"><a href="mailto:tucorreo@ucm.es">tucorreo@ucm.es</a></p>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <p>
+        I am a doctoral researcher at the Department of Geography of the
+        <a href="https://geografia.ucm.es" target="_blank" rel="noopener">Universidad Complutense de Madrid</a>.
       </p>
-      <nav aria-label="Secciones del portfolio">
-        <a href="#sobre-mi">sobre mí</a>
-        <a href="#investigacion">investigación</a>
-        <a href="#proyectos">proyectos</a>
-        <a href="#herramientas">herramientas</a>
-        <a href="#contacto">contacto</a>
-      </nav>
-    </header>
+      <p>
+        My research focuses on <strong>green transitions and urban inequalities</strong>
+        in the Madrid metropolitan region, examining how climate adaptation policies
+        reshape spatial inequalities, employment opportunities, and social cohesion.
+        Methodologically, I combine critical geography with
+        <strong>Computational Social Science</strong> tools.
+      </p>
+      <p>
+        I hold a Master's degree in Computational Social Science from the
+        <a href="https://www.uc3m.es" target="_blank" rel="noopener">Universidad Carlos III de Madrid</a>.
+      </p>
+    </section>
 
-    <main>
-
-      <section id="sobre-mi">
-        <p class="sec-label">sobre mí</p>
-        <p class="about">
-          Investigador doctoral en el Departamento de Geografía de la
-          <em>Universidad Complutense de Madrid</em>. Mi trabajo combina métodos
-          computacionales con geografía crítica para estudiar cómo las políticas
-          de <em>transición verde</em> reconfiguran el espacio urbano, el empleo
-          y la cohesión social en la región metropolitana de Madrid.
-        </p>
-      </section>
-
-      <section id="investigacion">
-        <p class="sec-label">líneas de investigación</p>
-        <div class="research-box">
-          <div class="research-item">
-            <p><strong>Transición ecológica y justicia espacial</strong>
-            Analizo cómo las políticas de descarbonización afectan de forma desigual a
-            distintos territorios y grupos sociales dentro del área metropolitana de Madrid.</p>
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul class="item-list">
+        <li>
+          <!-- Add your real publications here -->
+          <span class="item-title">Working paper / publication title</span>
+          <p class="item-meta">Journal or venue name · Year</p>
+          <p class="item-desc">Brief description or abstract excerpt of the work.</p>
+          <div class="item-links">
+            <a href="#">PDF</a>
+            <a href="#">DOI</a>
           </div>
-          <div class="research-item">
-            <p><strong>Desigualdades urbanas</strong>
-            Estudio la distribución espacial del empleo verde, la segregación residencial
-            y los efectos distributivos de la inversión pública en infraestructura climática.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="item-list">
+        <li>
+          <span class="item-title">LEGO BrickLink Data Harvesting</span>
+          <p class="item-meta">R · Web scraping · Shiny</p>
+          <p class="item-desc">
+            Web scraping project to extract historical prices of LEGO sets from BrickLink
+            and the official store. Includes an interactive Shiny App to explore price
+            appreciation trends by category and year.
+          </p>
+          <div class="item-links">
+            <a href="https://github.com/pbloas/lego_harvesting" target="_blank" rel="noopener">GitHub</a>
           </div>
-          <div class="research-item">
-            <p><strong>Ciencia Social Computacional</strong>
-            Aplico técnicas de análisis de datos, visualización y web scraping para
-            responder preguntas de geografía humana y política urbana.</p>
+        </li>
+        <li>
+          <span class="item-title">Data Visualization — UC3M</span>
+          <p class="item-meta">HTML · JavaScript · R</p>
+          <p class="item-desc">
+            Materials and assignments from the Data Visualization course of the Master's
+            in Computational Social Science at UC3M.
+          </p>
+          <div class="item-links">
+            <a href="https://github.com/pbloas/dataviz" target="_blank" rel="noopener">GitHub</a>
           </div>
-        </div>
-      </section>
+        </li>
+      </ul>
+    </section>
 
-      <section id="proyectos">
-        <p class="sec-label">proyectos destacados</p>
-        <div class="card-list">
-          <a class="proj" href="https://github.com/pbloas/lego_harvesting" target="_blank" rel="noopener">
-            <div class="proj-top">
-              <span class="proj-title">LEGO BrickLink Data Harvesting</span>
-              <span class="proj-tag">R · web scraping</span>
-            </div>
-            <p class="proj-desc">
-              Extracción y análisis de precios históricos de sets de LEGO desde BrickLink
-              y la tienda oficial. Incluye una Shiny App interactiva para explorar tendencias
-              de revalorización por categoría.
-            </p>
-          </a>
-          <a class="proj" href="https://github.com/pbloas/dataviz" target="_blank" rel="noopener">
-            <div class="proj-top">
-              <span class="proj-title">Data Visualization — UC3M</span>
-              <span class="proj-tag">HTML · visualización</span>
-            </div>
-            <p class="proj-desc">
-              Materiales y prácticas del curso de visualización de datos del Máster en
-              Ciencia Social Computacional de la Universidad Carlos III de Madrid.
-            </p>
-          </a>
-          <a class="proj" href="https://github.com/pbloas?tab=repositories" target="_blank" rel="noopener">
-            <div class="proj-top">
-              <span class="proj-title">Ver todos los repositorios</span>
-              <span class="proj-tag">github.com/pbloas</span>
-            </div>
-            <p class="proj-desc">
-              Explora el resto de proyectos y experimentos en mi perfil de GitHub.
-            </p>
-          </a>
-        </div>
-      </section>
+    <!-- DATA -->
+    <section id="data">
+      <h2>Data &amp; Code</h2>
+      <ul class="item-list">
+        <li>
+          <!-- Add your datasets or replication files here -->
+          <span class="item-title">Dataset / replication files title</span>
+          <p class="item-meta">Repository or data source · Year</p>
+          <p class="item-desc">Description of the dataset, its coverage, and how it can be used.</p>
+          <div class="item-links">
+            <a href="#">GitHub</a>
+            <a href="#">Zenodo</a>
+          </div>
+        </li>
+      </ul>
+    </section>
 
-      <section id="herramientas">
-        <p class="sec-label">herramientas &amp; métodos</p>
-        <div class="skills">
-          <span class="skill">R</span>
-          <span class="skill">Python</span>
-          <span class="skill">web scraping</span>
-          <span class="skill">Shiny</span>
-          <span class="skill">Quarto</span>
-          <span class="skill">GIS</span>
-          <span class="skill">visualización de datos</span>
-          <span class="skill">análisis espacial</span>
-          <span class="skill">ciencia social computacional</span>
-        </div>
-      </section>
+    <!-- CV -->
+    <section id="cv">
+      <h2>CV</h2>
+      <p style="margin-bottom:1rem;">Download my full academic curriculum vitae.</p>
+      <div class="cv-block">
+        <!-- Replace cv.pdf with the actual filename you upload to the repo -->
+        <a href="cv.pdf" class="cv-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          Download CV (PDF)
+        </a>
+        <span class="cv-note">Last updated: June 2025</span>
+      </div>
+    </section>
 
-      <section id="contacto">
-        <p class="sec-label">contacto</p>
-        <div class="contacts">
-          <a class="contact-link" href="https://github.com/pbloas" target="_blank" rel="noopener">
-            <!-- GitHub icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            github.com/pbloas
-          </a>
-          <a class="contact-link" href="https://geografia.ucm.es" target="_blank" rel="noopener">
-            <!-- Building icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 21h18M9 8h1m-1 4h1m-1 4h1m4-8h1m-1 4h1m-1 4h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
-            </svg>
-            UCM — Geografía
-          </a>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <p>© 2025 Pablo Aísa · pbloas.github.io</p>
-    </footer>
-
-  </div>
+  </main>
+</div>
 </body>
 </html>
