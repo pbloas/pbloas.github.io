@@ -21,17 +21,17 @@
      #3D6485 links · #121F42 body text · #F3EFEA tag background
    -------------------------------------------------------------------------- */
 :root {
-  --bg:         #E8E2DB;
+  --bg:         #F3F4F4;
   --surface:    #D9D1C6;
   --border:     #C4BBAE;
-  --muted:      #547792;
-  --secondary:  #46647D;
-  --label:      #547792;
+  --muted:      #3D6485;
+  --secondary:  #3D6485;
+  --label:      #3D6485;
   --link:       #3D6485;
-  --link-hover: #1A3263;
-  --heading:    #1A3263;
+  --link-hover: #121F42;
+  --heading:    #121F42;
   --text:       #121F42;
-  --tag-bg:     #F3EFEA;
+  --tag-bg:     #F3F4F4;
   --accent:     #FAB95B;
 
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
